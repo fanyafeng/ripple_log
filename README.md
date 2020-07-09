@@ -6,8 +6,60 @@
 ### 0.1 接入
 
 ```
+//根目录gradle
+maven {
+            url "https://dl.bintray.com/fanyafeng/ripple"
+        }
+        
+        
+//module目录gradle
+implementation 'com.ripple.component:log:0.0.2'
+```
+### 0.2 使用
+因为内部有默认实现类，这里就省了初始化的流程了，如果想兼容现有的逻辑的话查看下方详解
+
+### 0.2.1 直接打印日志：
+```
+//直接打印日志，因为msg常用，根据kotlin的建议，将其放在的第一个位置上了，下面的有详细说明
+logD("打印日志")
+```
+### 0.2.2 类扩展打印
+简单的举个例子，具体使用看下方代码详解
+原有代码
+```
+    private fun line(e: Exception): Int {
+        val trace = e.stackTrace
+        if (trace.isEmpty()) {
+            return -1
+        }
+        return trace[0].lineNumber
+    }
+```
+在不影响逻辑的情况下添加日志打印
 
 ```
+    private fun line(e: Exception): Int {
+        val trace = e.stackTrace
+        if (trace.isEmpty()) {
+            return -1
+        }
+        return trace[0].lineNumber.logD()
+    }
+```
+### 0.2.3 跳转到打印日志位置
+还用上方的举例
+
+```
+    private fun line(e: Exception): Int {
+        val trace = e.stackTrace
+        if (trace.isEmpty()) {
+            return -1
+        }
+        return trace[0].lineNumber.logDWithClassJump()
+    }
+//还有个顶层函数 withClassJump()使用此函数直接跳转到此处
+```
+这样打印出的日志为蓝色可以双击跳转到当前类的当前函数
 
 ## 一、目标
 1. 在不影响原有`LogUtil`的前提下，添加此日志工具类
