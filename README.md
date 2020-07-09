@@ -16,15 +16,30 @@ maven {
 implementation 'com.ripple.component:log:0.0.2'
 ```
 ### 0.2 使用
-因为内部有默认实现类，这里就省了初始化的流程了，如果想兼容现有的逻辑的话查看下方详解
+因为内部有默认实现类，这里就省了初始化的流程了，如果想兼容现有的逻辑的话查看下方详解(以`kotlin`作为示例说明，`java`代码还是畅通方式的调用)
 
 ### 0.2.1 直接打印日志：
+
+```
+logD("打印日志")
+```
+
+下方为例子
 ```
 //直接打印日志，因为msg常用，根据kotlin的建议，将其放在的第一个位置上了，下面的有详细说明
 logD("打印日志")
+logI("打印日志")
+//等等
 ```
 ### 0.2.2 类扩展打印
 简单的举个例子，具体使用看下方代码详解
+
+```
+5.logD()
+
+var name="姓名"
+name.logD("可以加入msg")
+```
 原有代码
 ```
     private fun line(e: Exception): Int {
@@ -47,6 +62,16 @@ logD("打印日志")
     }
 ```
 ### 0.2.3 跳转到打印日志位置
+
+```
+5.logDWithClassJump()
+
+var name="姓名"
+name.logDWithClassJump("可以加入msg")
+
+//还有个顶层函数 withClassJump()使用此函数直接跳转到此处
+withClassJump()
+```
 还用上方的举例
 
 ```
