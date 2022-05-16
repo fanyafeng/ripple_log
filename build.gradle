@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+apply plugin: 'maven-publish'
+group = 'com.github.fanyafeng'
+
 android {
     compileSdkVersion 29
 
@@ -28,5 +31,3 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 }
-
-//apply from: './gradle-jcenter-push.gradle'

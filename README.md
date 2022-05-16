@@ -7,13 +7,18 @@
 
 ```
 //根目录gradle
-maven {
-            url "https://dl.bintray.com/fanyafeng/ripple"
-        }
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
         
         
 //module目录gradle
-implementation 'com.ripple.component:log:0.0.2'
+dependencies {
+	        implementation 'com.github.fanyafeng:ripple_log:Tag'
+	}
 ```
 ### 0.2 使用
 因为内部有默认实现类，这里就省了初始化的流程了，如果想兼容现有的逻辑的话查看下方详解(以`kotlin`作为示例说明，`java`代码还是畅通方式的调用)
