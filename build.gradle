@@ -4,6 +4,8 @@ plugins {
     id 'maven-publish'
 }
 
+apply plugin: 'com.android.library'
+
 group = 'com.github.fanyafeng'
 version = '0.0.5'
 
