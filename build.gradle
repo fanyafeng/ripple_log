@@ -5,6 +5,8 @@ plugins {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+apply plugin: 'kotlin-android'
 
 group = 'com.github.fanyafeng'
 version = '0.0.6'
