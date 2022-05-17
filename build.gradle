@@ -7,7 +7,7 @@ plugins {
 apply plugin: 'com.android.library'
 
 group = 'com.github.fanyafeng'
-version = '0.0.5'
+version = '0.0.6'
 
 
 android {
@@ -55,7 +55,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.fanyafeng'
                 artifactId = 'log'
-                version = '0.0.5'
+                version = '0.0.6'
             }
         }
     }
