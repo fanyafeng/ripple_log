@@ -11,6 +11,10 @@ apply plugin: 'kotlin-android'
 group = 'com.github.fanyafeng'
 version = '0.0.7'
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 
 android {
     compileSdkVersion 30
