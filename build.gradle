@@ -22,6 +22,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -41,7 +43,7 @@ android {
 
     kotlinOptions {
         jvmTarget = '11'
-        useIR = true
+//        useIR = true
     }
 }
 
@@ -50,9 +52,9 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.fanyafeng'
-                artifactId = 'ripple_log'
-                version = '0.1.0'
+//                groupId = 'com.github.fanyafeng'
+//                artifactId = 'ripple_log'
+//                version = '0.1.0'
             }
         }
     }
